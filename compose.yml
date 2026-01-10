@@ -1,0 +1,11 @@
+secrets:
+  config_json:
+    file: secrets.json
+
+services:
+    foundry:
+        image: felddy/foundryvtt:13
+        hostname: joe-azerof-ub
+        secrets:
+            - source: config_json
+              target: config.json

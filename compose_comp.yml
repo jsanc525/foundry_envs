@@ -1,0 +1,10 @@
+services:
+    foundry:
+        volumes:
+            - type: bind
+              source: /home/joe-azerof/projects/foundry_envs/data/foundryuserdata_comp
+              target: /data
+        ports:
+            - target: 30000
+              published: 30001
+              protocol: tcp
