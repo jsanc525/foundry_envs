@@ -1,4 +1,6 @@
-# Compose Files for Hosting Foundry vtt
+# Compose File for Hosting Foundry vtt
+
+A compose file that makes use of the [felddy docker image for foundryvtt](https://hub.docker.com/r/felddy/foundryvtt). The `Dockerfile` adds the [official foundry cli](https://github.com/foundryvtt/foundryvtt-cli) to the image.  
 
 ## Envrionment set up
 
