@@ -3,9 +3,20 @@ secrets:
     file: secrets.json
 
 services:
-    foundry:
-        image: felddy/foundryvtt:13
-        hostname: joe-azerof-ub
-        secrets:
-            - source: config_json
-              target: config.json
+  foundry:
+    build:
+      context: .
+      args:
+        VERSION: ${IMAGE_VERSION:-latest}
+    hostname: ${HOSTNAME}
+    volumes:
+      - type: bind
+        source: ${FVTT_USER_DATA}
+        target: /data
+    ports:
+      - target: ${FVTT_TARGET_PORT}
+        published: ${FVTT_PUB_PORT}
+        protocol: tcp
+    secrets:
+      - source: config_json
+        target: config.json

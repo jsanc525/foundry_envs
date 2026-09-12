@@ -1,3 +1,4 @@
 secrets.json
 data/
 foundry-vtt-yrol-org/
+.env*
