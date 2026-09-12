@@ -1,23 +1,37 @@
 # Compose Files for Hosting Foundry vtt
 
-Docker compose command for mirror:
+## Envrionment set up
+
+1. Create a `.env` file for holding environment configs.  
+**Note:** HOSTNAME and FVTT_USER_DATA are required env vars for container to function correctly.  
 
 ```bash
-docker compose -p fvtt-mirror -f compose.yml -f compose_mirror.yml up -d
+cp templates/template_env .env
 ```
 
-Docker compose command for dev:
+2. Create a secrets file for foundry related secrets.  
 
 ```bash
-docker compose -p fvtt-comp -f compose.yml -f compose_comp.yml up -d
+cp templates/template_secrets.json secrets.json
 ```
 
-Docker compose command for experimental:
+**Note:** `secrets.json` and `.env*` have been added to the ignore file do not rename the secrets file or prepend the env file without updating `.gitignore` to avoid accidentally leaking secrets or configs.  
+
+## Start the environment
+
+Docker compose commands
 
 ```bash
-docker compose -p fvtt-exp -f compose.yml -f compose_v14.yml up -d
+# First run, Dockerfile change, version change
+docker compose up -d --build
+# Subsequent runs
+# docker compose up -d
+# or specify an env file in the case that multiple envs exist
+# docker compose --env-file .env.prod up -d --build
 ```
 
 ## Stopping the containers
 
-Run the same up command but with the down keyword
+```bash
+docker compose down
+```
