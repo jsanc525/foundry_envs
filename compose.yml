@@ -14,8 +14,8 @@ services:
         source: ${FVTT_USER_DATA}
         target: /data
     ports:
-      - target: ${FVTT_TARGET_PORT:30000}
-        published: ${FVTT_PUB_PORT:30000}
+      - target: ${FVTT_TARGET_PORT:-30000}
+        published: ${FVTT_PUB_PORT:-30000}
         protocol: tcp
     secrets:
       - source: config_json
