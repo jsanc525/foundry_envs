@@ -9,6 +9,9 @@ services:
       args:
         VERSION: ${IMAGE_VERSION:-latest}
     hostname: ${HOSTNAME}
+    env_file:
+        - path: .env_foundry
+          required: false
     volumes:
       - type: bind
         source: ${FVTT_USER_DATA}

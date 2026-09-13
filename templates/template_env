@@ -1,6 +1,6 @@
 # (Required)
 # Host name must be provided or foundry will fail check and error on restart
-HOSTNAME="your_host_name" #obtained with hostname command in linux envs
+HOSTNAME="your_host_name"
 FVTT_USER_DATA="path/to/foundry/user/data"
 
 # Optional Overrides - default values listed below
