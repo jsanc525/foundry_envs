@@ -9,7 +9,7 @@ services:
       args:
         VERSION: ${IMAGE_VERSION:-latest}
     hostname: ${HOSTNAME}
-    restart: unless-stopped
+    restart: ${RESTART:-no}
     env_file:
         - path: .env_foundry
           required: false
